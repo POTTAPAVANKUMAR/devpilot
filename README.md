@@ -20,9 +20,6 @@ Inspired by enterprise SDLC orchestration platforms (such as WorkPilot), **DevPi
 
 ```text
 devpilot/
-├── .github/
-│   └── plugin/
-│       └── marketplace.json         # Plugin registry manifest
 ├── plugin.json                      # Antigravity plugin manifest
 ├── README.md                        # Complete documentation
 ├── hooks.json                       # Lifecycle hooks (SessionStart, etc.)
