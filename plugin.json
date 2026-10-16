@@ -18,10 +18,10 @@
     "worktree",
     "planning"
   ],
-  "agents": ["agents/"],
-  "skills": ["skills/"],
-  "rules": ["rules/"],
-  "hooks": "hooks.json",
-  "mcpServers": "mcp_config.json",
+  "suggestedPrompts": [
+    "devpilot: implement GitHub issue #12 with PostgreSQL",
+    "devpilot: plan and create database migration for user sessions",
+    "review PR #15 and verify PostgreSQL migration safety"
+  ],
   "license": "MIT"
 }
