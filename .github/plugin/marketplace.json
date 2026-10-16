@@ -1,0 +1,29 @@
+{
+  "name": "personal-ai-platform",
+  "metadata": {
+    "description": "Personal AI-powered SDLC orchestration system for solo developers and builders, focusing on GitHub projects and PostgreSQL databases.",
+    "version": "1.0.0",
+    "pluginRoot": "./"
+  },
+  "owner": {
+    "name": "Pavan Kumar Potta",
+    "url": "https://github.com/pavankumarpotta"
+  },
+  "plugins": [
+    {
+      "name": "devpilot",
+      "source": "devpilot",
+      "version": "1.0.0",
+      "description": "Personal SDLC orchestration - converts GitHub issues or prompts into structured, traceable workflows across architecture research, PostgreSQL schema planning, worktree-isolated implementation, automated review, validation, and PR delivery.",
+      "keywords": [
+        "sdlc",
+        "github",
+        "postgres",
+        "code-review",
+        "pr-review",
+        "database-migration",
+        "worktree"
+      ]
+    }
+  ]
+}

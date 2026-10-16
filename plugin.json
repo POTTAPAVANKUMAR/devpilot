@@ -1,0 +1,27 @@
+{
+  "name": "devpilot",
+  "displayName": "DevPilot - Personal SDLC Orchestrator",
+  "version": "1.0.0",
+  "description": "Autonomous SDLC orchestration system tailored for personal GitHub repositories and PostgreSQL data layers. Drives end-to-end delivery from GitHub issue to tested, reviewed pull request with safe database migrations.",
+  "author": {
+    "name": "Pavan Kumar Potta",
+    "url": "https://github.com/pavankumarpotta"
+  },
+  "keywords": [
+    "sdlc",
+    "orchestration",
+    "github",
+    "postgres",
+    "database-migrations",
+    "code-review",
+    "pr-review",
+    "worktree",
+    "planning"
+  ],
+  "agents": ["agents/"],
+  "skills": ["skills/"],
+  "rules": ["rules/"],
+  "hooks": "hooks.json",
+  "mcpServers": "mcp_config.json",
+  "license": "MIT"
+}

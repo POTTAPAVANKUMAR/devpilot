@@ -1,0 +1,11 @@
+{
+  "devpilot-lifecycle": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "echo '🚀 DevPilot SDLC Plugin Active. Ready for GitHub & PostgreSQL orchestration.'"
+      }
+    ]
+  }
+}

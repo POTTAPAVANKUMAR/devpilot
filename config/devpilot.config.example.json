@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "platform": {
+    "projectManagement": {
+      "provider": "github",
+      "github": {
+        "owner": "YOUR_GITHUB_USERNAME",
+        "repo": "YOUR_REPO_NAME",
+        "defaultLabels": ["devpilot", "automated"]
+      },
+      "subtaskTemplates": {
+        "Feature": [
+          "PostgreSQL Schema & Migration Design",
+          "Repository / Data Access Layer",
+          "Service & Business Logic",
+          "API / Route Endpoints",
+          "Unit & Integration Tests",
+          "Documentation & PR"
+        ],
+        "Bug": [
+          "Root Cause Analysis & Reproduction Test",
+          "PostgreSQL / Code Fix Implementation",
+          "Regression & Integration Testing",
+          "Verification & PR"
+        ],
+        "Database-Migration": [
+          "PostgreSQL DDL Migration Script",
+          "Forward Migration & Rollback Test",
+          "Data Access Model Update",
+          "Index & Performance Verification"
+        ],
+        "Spike": [
+          "Investigation & Architecture Research",
+          "Proof of Concept (PoC)",
+          "Findings & Recommendations Document"
+        ]
+      }
+    },
+    "database": {
+      "provider": "postgres",
+      "connection": {
+        "url": "${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/my_database}",
+        "host": "localhost",
+        "port": 5432,
+        "database": "my_database",
+        "user": "postgres",
+        "password": "YOUR_PASSWORD"
+      },
+      "migrations": {
+        "directory": "migrations",
+        "format": "sql",
+        "migrationCommand": "npm run db:migrate",
+        "rollbackCommand": "npm run db:rollback"
+      }
+    },
+    "sourceControl": {
+      "provider": "github",
+      "defaultBranch": "main",
+      "isolationMode": "branch",
+      "branchPrefix": "feature/gh-",
+      "bugBranchPrefix": "bugfix/gh-"
+    },
+    "execution": {
+      "flowMode": "guided",
+      "maxRetries": 2,
+      "failFast": false,
+      "commitStrategy": "single"
+    },
+    "validation": {
+      "build": "npm run build",
+      "test": "npm test",
+      "lint": "npm run lint",
+      "typecheck": "npx tsc --noEmit",
+      "dbCheck": "psql $DATABASE_URL -c 'SELECT 1;'"
+    },
+    "review": {
+      "confidenceThreshold": 80,
+      "maxFilesForFullReview": 30
+    }
+  }
+}

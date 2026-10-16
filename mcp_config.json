@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/postgres}"
+      ],
+      "env": {
+        "PGDATABASE": "${PGDATABASE:-postgres}",
+        "PGUSER": "${PGUSER:-postgres}",
+        "PGHOST": "${PGHOST:-localhost}",
+        "PGPORT": "${PGPORT:-5432}"
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}

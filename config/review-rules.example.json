@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "namingConventions": {
+    "typescript": {
+      "variables": "camelCase",
+      "functions": "camelCase",
+      "classes": "PascalCase",
+      "interfaces": "PascalCase (no I-prefix)",
+      "constants": "SCREAMING_SNAKE_CASE for module-level; camelCase for local",
+      "files": "kebab-case.ts"
+    },
+    "sql": {
+      "tables": "snake_case (plural)",
+      "columns": "snake_case",
+      "primaryKey": "id",
+      "foreignKeys": "{referenced_table_singular}_id",
+      "indexes": "idx_{table}_{column(s)}",
+      "constraints": "chk_{table}_{description}"
+    }
+  },
+  "layeringRules": {
+    "layers": ["controller", "service", "repository", "model", "util"],
+    "allowedImports": {
+      "controller": ["service", "model", "util"],
+      "service": ["repository", "model", "util"],
+      "repository": ["model", "util"],
+      "model": ["util"],
+      "util": []
+    }
+  },
+  "securityPolicies": {
+    "secretsInCode": {
+      "severity": "Critical",
+      "rule": "No credentials, API keys, tokens, or passwords may appear in source code or committed configs."
+    },
+    "postgresSqlQueries": {
+      "severity": "Critical",
+      "rule": "All PostgreSQL queries must use parameterized placeholders ($1, $2, :param) or an established ORM. String concatenation for query building is strictly forbidden."
+    },
+    "databaseMigrations": {
+      "severity": "Critical",
+      "rule": "All DDL migrations must be wrapped in transactions (BEGIN; ... COMMIT;), use defensive clauses (IF NOT EXISTS), and avoid non-concurrent table rewrites on high-traffic tables."
+    },
+    "foreignKeyIndexing": {
+      "severity": "Warning",
+      "rule": "Every foreign key column should have an index created to prevent table-level locking during parent key changes."
+    }
+  },
+  "teamStandards": {
+    "rules": [
+      "All async functions must handle errors with try/catch or checked error returns.",
+      "All new environment variables must be documented in .env.example.",
+      "Database schema changes must include both forward and rollback SQL scripts."
+    ],
+    "commitMessageConvention": "Conventional Commits: type(scope): description",
+    "branchNamingConvention": "feature/gh-{issue}-{short-desc} | bugfix/gh-{issue}-{short-desc}",
+    "requiredReviewers": 1
+  }
+}
