@@ -10,9 +10,9 @@ Validates that the project repository is ready for autonomous execution and boot
 
 ## Procedure
 1. **Config Verification**:
-   - Check if `.devpilot/config.json` exists in the repository root.
-   - If not found, copy `config/devpilot.config.example.json` to `.devpilot/config.json`.
-   - Ensure `.devpilot/` is added to `.gitignore` so local workflow runtime data is not committed to git.
+   - Check if `.devpilot/config.json` or `.gemini/devpilot/config.json` exists in the repository root.
+   - If not found, bootstrap `.devpilot/config.json` (or `.gemini/devpilot/config.json` if `.gemini/` is present in the repo) from `config/devpilot.config.example.json`.
+   - Ensure the config directory (`.devpilot/` or `.gemini/devpilot/`) is added to `.gitignore` so local workflow runtime data is not committed to git.
 2. **Git Status Check**:
    - Run `git status --porcelain`.
    - If uncommitted changes exist on the current branch, warn the developer and prompt them to stash or commit before proceeding.
